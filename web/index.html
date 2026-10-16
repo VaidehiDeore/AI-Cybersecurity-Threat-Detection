@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4faff">
+  <title>Sentinel AI | Cybersecurity Operations Center</title>
+  <link rel="stylesheet" href="/static/styles.css">
+  <script defer src="/static/app.js"></script>
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar">
+    <a class="brand" href="#overview" aria-label="Sentinel AI home">
+      <div class="brand-mark"><span>✦</span></div>
+      <div><b>SENTINEL<span>AI</span></b><small>THREAT INTELLIGENCE</small></div>
+    </a>
+    <div class="nav-label">WORKSPACE</div>
+    <button class="nav-item active" data-page="overview"><span class="nav-icon">◈</span> Overview</button>
+    <button class="nav-item" data-page="monitor"><span class="nav-icon">⌁</span> Live Monitor</button>
+    <button class="nav-item" data-page="alerts"><span class="nav-icon">⚑</span> Alert Center <i class="nav-dot"></i></button>
+    <button class="nav-item" data-page="analytics"><span class="nav-icon">▥</span> Analytics</button>
+    <div class="sidebar-note">
+      <div class="note-icon">✧</div>
+      <div><b>AI detection core</b><small id="engine-status">Checking model…</small></div>
+    </div>
+    <div class="sidebar-bottom"><span class="status-orb"></span><div><b>Simulation environment</b><small>Isolated · local only</small></div></div>
+  </aside>
+  <main class="main">
+    <header class="topbar">
+      <div><div class="eyebrow" id="page-eyebrow">AI-POWERED CYBERSECURITY / OVERVIEW</div><h1 id="page-title">Threat intelligence <span>dashboard</span></h1></div>
+      <div class="top-actions"><span class="live-pill"><i></i> LOCAL SIMULATION</span><button id="refresh-btn" class="ghost-btn">↻ Refresh</button><div class="avatar">VA</div></div>
+    </header>
+
+    <section class="page active" id="page-overview">
+      <section class="hero">
+        <div class="hero-copy"><div class="eyebrow cyan">AI-POWERED DEFENSE</div><h2>See threats before<br><span>they become incidents.</span></h2><p>Machine-learning insights across simulated network flows. Investigate behavior, prioritize risk, and validate detections in one workspace.</p><div class="hero-meta"><span class="pulse"></span> Model-assisted monitoring <b>•</b> Dataset-driven demo</div></div>
+        <div class="shield-scene" aria-label="Decorative AI shield and network visualization">
+          <svg class="network-lines" viewBox="0 0 520 300" aria-hidden="true">
+            <defs><linearGradient id="lineGlow" x1="0" x2="1"><stop offset="0" stop-color="#7de8f4" stop-opacity=".2"/><stop offset=".55" stop-color="#05bddd" stop-opacity=".9"/><stop offset="1" stop-color="#3c77ff" stop-opacity=".18"/></linearGradient></defs>
+            <g fill="none" stroke="url(#lineGlow)" stroke-width="1.5">
+              <path d="M260 150 L70 45 L18 45 M260 150 L90 130 L25 130 M260 150 L62 248 L10 248"/>
+              <path d="M260 150 L445 45 L500 45 M260 150 L430 130 L510 130 M260 150 L450 250 L510 250"/>
+              <path d="M260 150 L150 20 L190 5 M260 150 L350 18 L390 5 M260 150 L160 280 L200 295 M260 150 L350 280 L390 295"/>
+            </g>
+            <g fill="#fff" stroke="#18b8de" stroke-width="2"><circle cx="70" cy="45" r="5"/><circle cx="90" cy="130" r="5"/><circle cx="62" cy="248" r="5"/><circle cx="445" cy="45" r="5"/><circle cx="430" cy="130" r="5"/><circle cx="450" cy="250" r="5"/><circle cx="190" cy="5" r="4"/><circle cx="390" cy="5" r="4"/><circle cx="200" cy="295" r="4"/><circle cx="390" cy="295" r="4"/></g>
+          </svg>
+          <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+          <div class="shield"><svg viewBox="0 0 100 116" aria-hidden="true"><path d="M50 5 L88 25 L84 72 Q72 96 50 109 Q28 96 16 72 L12 25 Z" fill="url(#shieldFill)" stroke="#04bfe6" stroke-width="4"/><path d="M50 18 L76 32 L73 69 Q64 85 50 94 Q36 85 27 69 L24 32 Z" fill="none" stroke="#fff" stroke-opacity=".85" stroke-width="1.5"/><path d="M42 52v-7a8 8 0 0 1 16 0v7" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/><rect x="37" y="51" width="26" height="22" rx="5" fill="#fff" fill-opacity=".94"/><circle cx="50" cy="60" r="2.5" fill="#0bb6d9"/><path d="M50 62v5" stroke="#0bb6d9" stroke-width="2"/></svg></div>
+          <div class="node n1">⌁</div><div class="node n2">◉</div><div class="node n3">⌘</div><div class="node n4">↗</div><div class="node n5">▦</div>
+          <div class="scene-caption">AI DETECTION CORE <span>● ACTIVE</span></div>
+        </div>
+      </section>
+      <section class="metrics-grid">
+        <article class="metric-card"><div class="metric-top"><span>Total flows analyzed</span><span class="metric-icon cyan-icon">⌁</span></div><div class="metric-value" id="total-flows">—</div><div class="metric-foot"><span class="positive">●</span> Synthetic dataset records</div></article>
+        <article class="metric-card"><div class="metric-top"><span>Model accuracy</span><span class="metric-icon blue-icon">◎</span></div><div class="metric-value" id="accuracy">—</div><div class="metric-foot">Held-out test split</div></article>
+        <article class="metric-card"><div class="metric-top"><span>Threat classes</span><span class="metric-icon violet-icon">⌘</span></div><div class="metric-value">04</div><div class="metric-foot">Normal + 3 threat patterns</div></article>
+        <article class="metric-card"><div class="metric-top"><span>Detection mode</span><span class="metric-icon green-icon">◈</span></div><div class="metric-value mode-value">HYBRID</div><div class="metric-foot">Classification + anomaly scoring</div></article>
+      </section>
+      <section class="content-grid">
+        <article class="panel chart-panel"><div class="panel-heading"><div><div class="eyebrow">TRAFFIC INTELLIGENCE</div><h3>Observed class distribution</h3></div><span class="panel-chip">DATASET</span></div><div id="distribution" class="bar-chart"><div class="empty">Loading distribution…</div></div><div class="chart-legend"><span><i class="legend-dot normal"></i> Normal</span><span><i class="legend-dot threat"></i> Threat patterns</span></div></article>
+        <article class="panel model-panel"><div class="panel-heading"><div><div class="eyebrow">MODEL HEALTH</div><h3>Evaluation snapshot</h3></div><span class="panel-chip">TEST SET</span></div><div class="score-ring" id="score-ring"><div><b id="f1">—</b><small>Weighted F1</small></div></div><div class="model-stats"><div><span>Precision</span><b id="precision">—</b></div><div><span>Recall</span><b id="recall">—</b></div></div><p class="fine-print">Scores use synthetic educational data, not a production benchmark.</p></article>
+      </section>
+      <section class="panel overview-alerts"><div class="panel-heading"><div><div class="eyebrow">PRIORITY QUEUE</div><h3>Latest demo detections</h3></div><button class="text-button" data-goto="alerts">View alert center →</button></div><div id="overview-alert-list" class="mini-alert-list"><div class="empty">Run demo detection to populate the queue.</div></div></section>
+    </section>
+
+    <section class="page" id="page-monitor">
+      <div class="page-intro"><div><div class="eyebrow cyan">NETWORK TELEMETRY</div><h2>Live traffic monitor</h2><p>Explore recent records from the controlled synthetic traffic dataset.</p></div><button id="monitor-refresh" class="primary-btn">↻ Refresh traffic</button></div>
+      <div class="metrics-grid compact-metrics"><article class="metric-card"><div class="metric-top"><span>Records in view</span><span class="metric-icon cyan-icon">⌁</span></div><div class="metric-value" id="monitor-count">—</div><div class="metric-foot">Most recent generated records</div></article><article class="metric-card"><div class="metric-top"><span>High request-rate flows</span><span class="metric-icon blue-icon">↗</span></div><div class="metric-value" id="monitor-high">—</div><div class="metric-foot">Top 10% request-rate threshold</div></article><article class="metric-card"><div class="metric-top"><span>Average connections</span><span class="metric-icon violet-icon">◎</span></div><div class="metric-value" id="monitor-avg">—</div><div class="metric-foot">Across loaded dataset</div></article></div>
+      <article class="panel"><div class="panel-heading"><div><div class="eyebrow">FLOW INSPECTOR</div><h3>Recent network-flow records</h3></div><div class="filter-wrap"><label for="traffic-filter">Filter class</label><select id="traffic-filter"><option value="ALL">All classes</option><option>NORMAL</option><option>DOS</option><option>BRUTE_FORCE</option><option>ANOMALY</option></select></div></div><div class="table-wrap"><table><thead><tr><th>CLASS LABEL</th><th>SERVICE</th><th>REQUEST RATE</th><th>CONNECTIONS</th><th>FAILED LOGINS</th><th>BYTES (SRC / DST)</th></tr></thead><tbody id="traffic-rows"><tr><td colspan="6" class="empty">Loading traffic…</td></tr></tbody></table></div><div class="table-note">These rows are generated for education and are not captured from a live network.</div></article>
+    </section>
+
+    <section class="page" id="page-alerts">
+      <div class="page-intro"><div><div class="eyebrow cyan">TRIAGE & INVESTIGATION</div><h2>Alert center</h2><p>Run the model against safe demonstration records and inspect the resulting risk labels.</p></div><button id="run-detection" class="primary-btn">▶ Run demo detection</button></div>
+      <div class="metrics-grid compact-metrics"><article class="metric-card"><div class="metric-top"><span>Alerts in this run</span><span class="metric-icon cyan-icon">⚑</span></div><div class="metric-value" id="alert-total">0</div><div class="metric-foot">Model prediction events</div></article><article class="metric-card"><div class="metric-top"><span>Threats flagged</span><span class="metric-icon violet-icon">!</span></div><div class="metric-value" id="alert-threats">0</div><div class="metric-foot">Non-normal predicted classes</div></article><article class="metric-card"><div class="metric-top"><span>Highest severity</span><span class="metric-icon green-icon">◆</span></div><div class="metric-value mode-value" id="alert-highest">—</div><div class="metric-foot">From current demo run</div></article></div>
+      <article class="panel"><div class="panel-heading"><div><div class="eyebrow">DETECTION QUEUE</div><h3>Prediction events</h3></div><span class="panel-chip">MODEL OUTPUT</span></div><div class="table-wrap"><table><thead><tr><th>SEVERITY</th><th>DETECTION</th><th>CONFIDENCE</th><th>THREAT STATUS</th><th>TIMESTAMP</th></tr></thead><tbody id="alert-rows"><tr><td colspan="5" class="empty">Click “Run demo detection” to generate predictions.</td></tr></tbody></table></div><div class="table-note">Severity is an educational mapping from predicted label, not a validated operational risk rating.</div></article>
+      <div class="notice"><span>ⓘ</span><p><b>Simulation notice</b> — These alerts are generated from synthetic records. They are not verified incidents and do not indicate activity on your device or network.</p></div>
+    </section>
+
+    <section class="page" id="page-analytics">
+      <div class="page-intro"><div><div class="eyebrow cyan">MODEL OBSERVABILITY</div><h2>Analytics & evaluation</h2><p>Understand the class balance and the baseline model's measured performance.</p></div><button id="analytics-refresh" class="primary-btn">↻ Refresh analytics</button></div>
+      <section class="metrics-grid compact-metrics"><article class="metric-card"><div class="metric-top"><span>Weighted precision</span><span class="metric-icon cyan-icon">◎</span></div><div class="metric-value" id="ana-precision">—</div><div class="metric-foot">How often predicted labels were correct</div></article><article class="metric-card"><div class="metric-top"><span>Weighted recall</span><span class="metric-icon blue-icon">↗</span></div><div class="metric-value" id="ana-recall">—</div><div class="metric-foot">Share of actual labels recovered</div></article><article class="metric-card"><div class="metric-top"><span>Weighted F1</span><span class="metric-icon violet-icon">✧</span></div><div class="metric-value" id="ana-f1">—</div><div class="metric-foot">Harmonic mean of precision and recall</div></article></section>
+      <section class="content-grid analytics-grid"><article class="panel"><div class="panel-heading"><div><div class="eyebrow">CLASS BALANCE</div><h3>Traffic class distribution</h3></div><span class="panel-chip">ALL RECORDS</span></div><div id="analytics-distribution" class="bar-chart large-bars"></div></article><article class="panel"><div class="panel-heading"><div><div class="eyebrow">FEATURE SNAPSHOT</div><h3>Behavioral indicators</h3></div></div><div class="feature-list"><div><span>Average request rate</span><b id="avg-rate">—</b></div><div><span>Average connections</span><b id="avg-connections">—</b></div><div><span>Average failed logins</span><b id="avg-failed">—</b></div><div><span>High request-rate flows</span><b id="high-rate">—</b></div></div><p class="fine-print">Feature summaries describe the synthetic dataset only.</p></article></section>
+      <article class="panel evaluation-panel"><div class="panel-heading"><div><div class="eyebrow">HOW TO READ THESE METRICS</div><h3>Evaluation guide</h3></div></div><div class="definition-grid"><div><b>Accuracy</b><p>Fraction of test examples classified correctly. It can hide poor performance on rare classes.</p></div><div><b>Precision</b><p>Of the examples assigned to a class, how many truly belonged to it.</p></div><div><b>Recall</b><p>Of the examples belonging to a class, how many the model found.</p></div><div><b>F1 score</b><p>A balance between precision and recall. Review per-class metrics as well as weighted averages.</p></div></div></article>
+    </section>
+    <footer><span>SENTINEL AI <b>•</b> EDUCATIONAL CYBERSECURITY PROJECT</span><span>LOCAL SIMULATION / NOT CONNECTED TO LIVE NETWORKS</span></footer>
+  </main>
+</div>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body></html>
